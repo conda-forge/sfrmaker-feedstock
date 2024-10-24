@@ -1,5 +1,5 @@
 {% set name = "sfrmaker" %}
-{% set version = "0.11.2" %}
+{% set version = "0.11.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/sfrmaker-{{ version }}.tar.gz
-  sha256: 16841792c16926eb27954982d73c8af1bc8688556070e3a1a64de9dc4ab6eb64
+  sha256: 3dcf06565ea3fab63432f7603f43fc956d0ebcca0157467c4fb7c80d48a8937d
 
 build:
   entry_points:
