@@ -1,3 +1,4 @@
+{% set python_min = '3.11' %}
 {% set name = "sfrmaker" %}
 {% set version = "0.11.3" %}
 
@@ -6,7 +7,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/sfrmaker-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/sfrmaker-{{ version }}.tar.gz
   sha256: 3dcf06565ea3fab63432f7603f43fc956d0ebcca0157467c4fb7c80d48a8937d
 
 build:
@@ -14,15 +15,15 @@ build:
     - get-modflow = flopy.utils.get_modflow:cli_main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.11
+    - python {{ python_min }}
     - setuptools >=61
     - pip
   run:
-    - python >=3.11
+    - python >={{ python_min }}
     - geopandas
     - gis-utils
     - fiona
@@ -48,6 +49,7 @@ test:
     - get-modflow --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/DOI-USGS/sfrmaker.git
